@@ -29,7 +29,7 @@ class TestDeck_Of_Cards(TestCase):
         self.deck.cards=[]
         self.assertFalse(self.deck.deal_one())
     @patch('Deck_Of_Cards.Deck_Of_Cards.deal_one',return_value=Card(2,3))
-    def test_deal_one(self,mock):
+    def test_deal_one_using_mock_object(self,mock):
         self.deck.deal_one()
         self.deck.cards.remove(self.deck.deal_one())
         print(len(self.deck.cards))
