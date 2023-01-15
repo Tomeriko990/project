@@ -13,6 +13,7 @@ class Card:
             raise ValueError("Argument suit must be value from 1-4")
         self.value=value
         self.suit=suit
+
     def __gt__(self, other):
         """Function that compare greatness between card value and suit to other card"""
         if type(other)!=Card:
@@ -27,6 +28,7 @@ class Card:
             return True
         else:
             return False
+
     def __eq__(self, other):
         """Function that compare equality between card value and suit to other card"""
         if type(other)!=Card:
@@ -35,6 +37,7 @@ class Card:
             return True
         else:
             return False
+
     def __repr__(self):
         dic={1:"Ace",11:"Jack",12:"Queen",13:"King"}
         dic2={1:"Diamond",2:"Spade",3:"Heart",4:"Club"}

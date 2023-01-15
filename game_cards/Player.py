@@ -23,8 +23,14 @@ class Player:
          random card only from the Deck_Of_Cards"""
         if type(deck_cards)!=Deck_Of_Cards:
             raise TypeError("Argument deck_cards must be Deck_Of_Cards")
-        for i in range(self.number_cards):
-            self.cards.append(deck_cards.deal_one())
+        if len(self.cards)>0:
+            print("player already has cards")
+        else:
+         if len(deck_cards.cards)>=26:
+           for i in range(self.number_cards):
+             self.cards.append(deck_cards.deal_one())
+         else:
+            print("not enough cards in the deck")
 
     def get_card(self):
         """Function that choose randomly card from the hand of the player

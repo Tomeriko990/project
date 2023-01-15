@@ -10,6 +10,9 @@ class TestPlayer(TestCase):
         self.player=Player("tomer")
         self.player2=Player("tomer",10)
 
+    def tearDown(self):
+        print("tear down")
+
     def test_init_valid_case_and_argument_number_cards_not_filled(self):
         self.assertTrue(self.player)
         self.assertEqual("tomer",self.player.name)
@@ -70,6 +73,30 @@ class TestPlayer(TestCase):
         self.assertNotEqual(self.player.cards[0:14],self.player.cards[14::])
         print(self.player.cards)
 
+    def test_set_hand_invalid_case_no_cards_in_deck(self):
+        self.deck.cards=[]
+        self.assertFalse(self.player2.set_hand(self.deck))
+        print(self.player2.cards)
+        self.assertEqual(0,len(self.player2.cards))
+
+    def test_set_hand_invalid_case_player_already_has_cards(self):
+        self.player2.set_hand(self.deck)
+        self.assertEqual(len(self.player2.cards),10)
+        print(self.player2.cards)
+        self.assertFalse(self.player2.set_hand(self.deck))
+        self.assertEqual(len(self.player2.cards), 10)
+        print(self.player2.cards)
+
+    def test_set_hand_invalid_case_deck_of_cards_has_less_then_26_cards(self):
+        self.player.set_hand(self.deck)
+        self.assertEqual(26,len(self.player.cards))
+        self.deck.deal_one()
+        self.assertEqual(25,len(self.deck.cards))
+        print(len(self.deck.cards))
+        self.assertFalse(self.player2.set_hand(self.deck))
+        self.assertEqual([],self.player2.cards)
+        print(self.player2.cards)
+
     def test_set_hand_invalid_case_deck_cards_not_type_Deck_Of_Cards(self):
         with self.assertRaises(TypeError):
             self.player.set_hand([1,2,3,4,5,6])
@@ -102,3 +129,8 @@ class TestPlayer(TestCase):
             self.player2.add_card(1,1)
         with self.assertRaises(TypeError):
             self.player2.add_card("Ace","Spade")
+
+
+
+
+
