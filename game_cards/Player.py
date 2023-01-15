@@ -28,7 +28,7 @@ class Player:
 
     def get_card(self):
         """Function that choose randomly card from the hand of the player
-        and remove it from tha list of his cards"""
+        and remove it from the list of his cards"""
         if len(self.cards)>0:
          c=choice(self.cards)
          self.cards.remove(c)
