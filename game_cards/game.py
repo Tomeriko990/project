@@ -3,7 +3,7 @@ from Player import Player
 from Card import Card
 player1=input("enter name: ")
 player2=input("enter name: ")
-game=Card_Game(player1,player2,10,10)
+game=Card_Game(player1,player2)
 print(game.player1)
 print(game.player2)
 for i in range(1,11):
