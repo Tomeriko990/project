@@ -1,9 +1,9 @@
 from Card_Game import Card_Game
 from Player import Player
 from Card import Card
-player1=Player("ronen")
-player2=Player("betty")
-game=Card_Game(player1.name.title(),player2.name.title(),10,10)
+player1=input("enter name: ")
+player2=input("enter name: ")
+game=Card_Game(player1,player2,10,10)
 print(game.player1)
 print(game.player2)
 for i in range(1,11):
