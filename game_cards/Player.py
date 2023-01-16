@@ -24,7 +24,7 @@ class Player:
         if type(deck_cards)!=Deck_Of_Cards:
             raise TypeError("Argument deck_cards must be Deck_Of_Cards")
         if len(self.cards)>0:
-            print("player already has cards")
+            print(f"{self.name} already has cards")
         else:
          if len(deck_cards.cards)>=20:
            for i in range(self.number_cards):
