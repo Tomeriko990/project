@@ -96,7 +96,7 @@ class TestPlayer(TestCase):
         self.assertEqual(19,len(self.deck.cards))
         print(len(self.deck.cards))
         self.assertFalse(self.player2.set_hand(self.deck))
-        self.assertEqual([],self.player2.cards)
+        self.assertEqual(0,len(self.player2.cards))
         print(self.player2.cards)
 
     def test_set_hand_invalid_case_deck_cards_not_type_Deck_Of_Cards(self):
