@@ -87,11 +87,18 @@ class TestPlayer(TestCase):
         self.assertEqual(len(self.player2.cards), 10)
         print(self.player2.cards)
 
-    def test_set_hand_invalid_case_deck_of_cards_has_less_then_26_cards(self):
+    def test_set_hand_invalid_case_deck_of_cards_has_less_then_20_cards(self):
+        #19 cards in the deck of cards
         self.player.set_hand(self.deck)
         self.assertEqual(26,len(self.player.cards))
         self.deck.deal_one()
-        self.assertEqual(25,len(self.deck.cards))
+        self.deck.deal_one()
+        self.deck.deal_one()
+        self.deck.deal_one()
+        self.deck.deal_one()
+        self.deck.deal_one()
+        self.deck.deal_one()
+        self.assertEqual(19,len(self.deck.cards))
         print(len(self.deck.cards))
         self.assertFalse(self.player2.set_hand(self.deck))
         self.assertEqual([],self.player2.cards)
