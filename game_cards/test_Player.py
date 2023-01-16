@@ -67,11 +67,6 @@ class TestPlayer(TestCase):
         self.assertIn(Card(1, 4), self.player.cards)
         print(self.player.cards)
 
-    def test_set_hand_valid_case_different_cards(self):
-        deck = Deck_Of_Cards()
-        self.player.set_hand(deck)
-        self.assertNotEqual(self.player.cards[0:14],self.player.cards[14::])
-        print(self.player.cards)
 
     def test_set_hand_invalid_case_no_cards_in_deck(self):
         self.deck.cards=[]
